@@ -28,7 +28,7 @@ function App() {
     const [feedbackMessages, setFeedbackMessages] = useState([]);
 
     const getFeedbackMessages = () => {
-        axios.get('http://localhost:5000/feedback-form')
+        axios.get('https://feedback-nest-api.herokuapp.com/feedback-form')
             .then((res) => {
                 setFeedbackMessages(res.data);
             }).catch((err) => {

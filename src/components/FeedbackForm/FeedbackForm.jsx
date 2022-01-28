@@ -77,7 +77,7 @@ const FeedbackForm = () => {
 
     const onSubmitFormHandler = (values) => {
         alert('data put to console');
-        axios.post('http://localhost:5000/feedback-form', values)
+        axios.post('https://feedback-nest-api.herokuapp.com/feedback-form', values)
             .then((res) => {
                 console.log('response from axios', res.data)
             }).catch((err) => {
