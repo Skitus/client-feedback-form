@@ -9,6 +9,3 @@ For connecting to backend I use:
 
 1.axios
 2.service/http.js
-
-For style my component I use such file structure like:
-1.NameOfComponentStyledComponents.js
