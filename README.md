@@ -11,4 +11,4 @@ For connecting to backend I use:
 2.service/http.js
 
 For style my component I use such file structure like:
-1.<name-of-components>.jsx/<name-of-components-StyledComponents>.js
+1.NameOfComponentStyledComponents.js
