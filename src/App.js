@@ -1,46 +1,23 @@
 import FeedbackFormPage from "./pages/FeedbackFormPage";
-import {useEffect, useState} from "react";
-import axios from "axios";
-import styled from "styled-components";
+import {useEffect} from "react";
 import background from "./images/back.jpg";
 import Decor from "./components/Decor/Decor";
 import Footer from "./components/Footer/Footer";
+import {AppWrapper, FlexBox} from "./AppStyledComponents";
+import {useDispatch, useSelector} from "react-redux";
+import {listOfMessagesSelector} from "./bll/listOfMessages/listOfMessages.selector";
+import {fetchMessages} from "./bll/listOfMessages/listOfMessages.slice";
 
-const AppWrapper = styled.div`
-  max-width: 1600px;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 0px auto;
-  background-size: cover;
-  background-image: url(${props => props.background});
-`;
-
-const FlexBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
 
 function App() {
-    const [feedbackMessages, setFeedbackMessages] = useState([]);
-
-    const getFeedbackMessages = () => {
-        axios.get('https://feedback-nest-api.herokuapp.com/feedback-form')
-            .then((res) => {
-                setFeedbackMessages(res.data);
-            }).catch((err) => {
-            console.log('error from axios', err);
-        });
-    }
+    const dispatch = useDispatch();
+    const {messagesData} = useSelector(listOfMessagesSelector);
 
     useEffect(() => {
-        getFeedbackMessages();
+        dispatch(fetchMessages());
     }, []);
 
-    console.log('feedbackMessages', feedbackMessages);
+    console.log('messagesData', messagesData);
 
     return (
         <AppWrapper background={background}>

@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createGlobalStyle, ThemeProvider} from "styled-components";
 import App from './App';
-import "./fonts/ApercuArabicPro-Medium.ttf"
+import "./fonts/ApercuArabicPro-Medium.ttf";
 import "./index.css";
+import {Provider} from "react-redux";
+import store from "./bll/store";
 
 const Global = createGlobalStyle`
   * {
@@ -22,8 +24,10 @@ const theme = {
 
 ReactDOM.render(
     <ThemeProvider theme={theme}>
-    <Global/>
-        <App/>
+        <Global/>
+        <Provider store={store}>
+            <App/>
+        </Provider>
     </ThemeProvider>,
     document.getElementById('root')
 );
