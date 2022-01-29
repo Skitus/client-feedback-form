@@ -9,7 +9,7 @@ export const createMessageQuery = createAsyncThunk(
 export const createMessage = createSlice({
     name: 'createMessage',
     initialState: {
-        messagesIsLoading: true,
+        messagesIsLoading: true
     },
     reducers: {},
     extraReducers: {
