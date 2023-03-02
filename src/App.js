@@ -1,33 +1,34 @@
 import FeedbackFormPage from "./pages/FeedbackFormPage";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import background from "./images/back.jpg";
 import Decor from "./components/Decor/Decor";
 import Footer from "./components/Footer/Footer";
-import {AppWrapper, FlexBox} from "./AppStyledComponents";
-import {useDispatch, useSelector} from "react-redux";
-import {listOfMessagesSelector} from "./bll/listOfMessages/listOfMessages.selector";
-import {fetchMessages} from "./bll/listOfMessages/listOfMessages.slice";
-
+import { AppWrapper, FlexBox } from "./AppStyledComponents";
+import { useDispatch, useSelector } from "react-redux";
+import { listOfMessagesSelector } from "./bll/listOfMessages/listOfMessages.selector";
+import { fetchMessages } from "./bll/listOfMessages/listOfMessages.slice";
 
 function App() {
-    const dispatch = useDispatch();
-    const {messagesData} = useSelector(listOfMessagesSelector);
+  const dispatch = useDispatch();
+  const { messagesData } = useSelector(listOfMessagesSelector);
 
-    useEffect(() => {
-        dispatch(fetchMessages());
-    }, []);
+  useEffect(() => {
+    dispatch(fetchMessages());
+  }, []);
 
-    console.log('messagesData', messagesData);
+  console.log("messagesData", messagesData);
 
-    return (
-        <AppWrapper background={background}>
-            <FlexBox>
-                <FeedbackFormPage/>
-                <Decor />
-            </FlexBox>
-            <Footer/>
-        </AppWrapper>
-    );
+  return (
+    <AppWrapper background={background}>
+      <h1>Hello</h1>
+      <h1>bye</h1>
+      <FlexBox>
+        <FeedbackFormPage />
+        <Decor />
+      </FlexBox>
+      <Footer />
+    </AppWrapper>
+  );
 }
 
 export default App;
